@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using UtilitiesCore.Interfaces;
 
 namespace InterviewTestsCore
 {
@@ -12,7 +13,14 @@ namespace InterviewTestsCore
         [TestCase("1 + 1 + 1 - 1 - 1 + 1", 2)]
         public void Calculator(string expression, int expectedResult)
         {
+            // Arrange
+            ICalculator calculator = null;
             
+            // Act
+            var result = calculator.Calculate(expression);
+            
+            // Assert
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
     }
 }
